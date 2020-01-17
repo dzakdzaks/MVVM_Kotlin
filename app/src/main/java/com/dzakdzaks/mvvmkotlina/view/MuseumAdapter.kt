@@ -1,17 +1,17 @@
 package com.dzakdzaks.mvvmkotlina.view
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.dzakdzaks.mvvmkotlina.data.Museum
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.dzakdzaks.mvvmkotlina.R
+import com.dzakdzaks.mvvmkotlina.model.MuseumEntity
 
 
 /**
@@ -24,7 +24,8 @@ import com.dzakdzaks.mvvmkotlina.R
  * ==================================//==================================
  */
 
-class MuseumAdapter(private var museums: List<Museum>): RecyclerView.Adapter<MuseumAdapter.ViewHolder>() {
+class MuseumAdapter(private var museums: List<MuseumEntity>) :
+    RecyclerView.Adapter<MuseumAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
@@ -69,14 +70,14 @@ class MuseumAdapter(private var museums: List<Museum>): RecyclerView.Adapter<Mus
 
     }
 
-    fun update(data: List<Museum>) {
+    fun update(data: List<MuseumEntity>) {
         museums = data
         notifyDataSetChanged()
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvName: TextView = itemView.findViewById(R.id.textViewName)
-        val imageView: ImageView = itemView. findViewById(R.id.imageView)
+        val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val tvLink: TextView = itemView.findViewById(R.id.textViewLink)
     }
 }

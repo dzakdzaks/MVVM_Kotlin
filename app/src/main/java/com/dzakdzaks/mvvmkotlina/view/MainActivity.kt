@@ -1,6 +1,5 @@
 package com.dzakdzaks.mvvmkotlina.view
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,11 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dzakdzaks.mvvmkotlina.R
 import com.dzakdzaks.mvvmkotlina.di.Injection
-import com.dzakdzaks.mvvmkotlina.data.Museum
+import com.dzakdzaks.mvvmkotlina.model.MuseumEntity
 import com.dzakdzaks.mvvmkotlina.viewmodel.MuseumViewModel
 import com.dzakdzaks.mvvmkotlina.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -46,12 +44,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        adapter = MuseumAdapter(viewModel.museums.value ?: emptyList())
+        adapter = MuseumAdapter(viewModel.loadMuseums().value ?: emptyList())
 
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
-            recyclerView.layoutManager = LinearLayoutManager(this)
-        else
-            recyclerView.layoutManager = GridLayoutManager(this, 4)
+//        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+//        else
+//            recyclerView.layoutManager = GridLayoutManager(this, 4)
 
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = adapter
@@ -76,15 +74,15 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewModel() {
         viewModel = ViewModelProviders.of(this, ViewModelFactory(Injection.providerMuseumRepo()))
             .get(MuseumViewModel::class.java)
-        viewModel.museums.observe(this, renderMuseums)
+        viewModel.loadMuseums().observe(this, renderMuseums)
 
-        viewModel.isViewLoading.observe(this, isViewLoadingObserver)
-        viewModel.onMessageError.observe(this, onMessageErrorObserver)
-        viewModel.isEmptyList.observe(this, isEmptyListObserver)
+        MuseumViewModel.repo?.isLoading()?.observe(this, isViewLoadingObserver)
+        MuseumViewModel.repo?.onErrorMessage()?.observe(this, onMessageErrorObserver)
+        MuseumViewModel.repo?.listIsEmpty()?.observe(this, isEmptyListObserver)
 
     }
 
-    private val renderMuseums = Observer<List<Museum>> {
+    private val renderMuseums = Observer<List<MuseumEntity>> {
         Log.v(TAG, "data updated $it")
         layoutError.visibility = View.GONE
         layoutEmpty.visibility = View.GONE
@@ -114,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadMuseum()
+        viewModel.loadMuseums()
     }
 
 }

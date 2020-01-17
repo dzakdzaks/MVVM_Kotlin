@@ -1,15 +1,22 @@
 package com.dzakdzaks.mvvmkotlina.data
 
-import java.io.Serializable
+import androidx.lifecycle.LiveData
+import com.dzakdzaks.mvvmkotlina.model.MuseumEntity
 
 /**
  * ==================================//==================================
  * ==================================//==================================
- * Created by Dzakdzaks on Thursday, 16 January 2020 at 15:26.
+ * Created by Dzakdzaks on Thursday, 16 January 2020 at 15:27.
  * Project Name => MVVM Kotlina
  * Package Name => com.dzakdzaks.mvvmkotlina.model
  * ==================================//==================================
  * ==================================//==================================
  */
 
-data class Museum(val id: Int?, val name: String?, val photo: String?): Serializable
+interface PublicDataSource {
+    fun isLoading(): LiveData<Boolean>
+    fun onErrorMessage(): LiveData<Any>
+    fun listIsEmpty(): LiveData<Boolean>
+
+    fun retrieveMuseums(): LiveData<List<MuseumEntity>>
+}

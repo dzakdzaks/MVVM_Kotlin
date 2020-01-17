@@ -1,4 +1,6 @@
-package com.dzakdzaks.mvvmkotlina.data
+package com.dzakdzaks.mvvmkotlina.model.response
+
+import com.dzakdzaks.mvvmkotlina.model.MuseumEntity
 
 /**
  * ==================================//==================================
@@ -10,6 +12,6 @@ package com.dzakdzaks.mvvmkotlina.data
  * ==================================//==================================
  */
 
-data class MuseumResponse(val status: Int?, val msg: String?, val data: List<Museum>?) {
+data class MuseumResponse(val status: Int?, val msg: String?, val data: List<MuseumEntity>?) {
     fun isSuccess(): Boolean = (status == 200)
 }

@@ -1,7 +1,7 @@
-package com.dzakdzaks.mvvmkotlina.service
+package com.dzakdzaks.mvvmkotlina.data.online
 
 import com.dzakdzaks.mvvmkotlina.BuildConfig
-import com.dzakdzaks.mvvmkotlina.data.MuseumResponse
+import com.dzakdzaks.mvvmkotlina.model.response.MuseumResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -34,7 +34,8 @@ object RetrofitApiClient {
 
         val retrofit: Retrofit = builder.client(httpClient.build()).build()
         servicesApiInterface = retrofit.create(
-            ServicesApiInterface::class.java)
+            ServicesApiInterface::class.java
+        )
 
         return servicesApiInterface as ServicesApiInterface
     }

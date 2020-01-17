@@ -2,7 +2,7 @@ package com.dzakdzaks.mvvmkotlina.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dzakdzaks.mvvmkotlina.data.MuseumDataSource
+import com.dzakdzaks.mvvmkotlina.data.PublicRepository
 
 
 /**
@@ -15,7 +15,7 @@ import com.dzakdzaks.mvvmkotlina.data.MuseumDataSource
  * ==================================//==================================
  */
 
-class ViewModelFactory(private val repository: MuseumDataSource) : ViewModelProvider.Factory {
+class ViewModelFactory(private val repository: PublicRepository) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MuseumViewModel::class.java)) {

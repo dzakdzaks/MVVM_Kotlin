@@ -1,7 +1,8 @@
 package com.dzakdzaks.mvvmkotlina.di
 
-import com.dzakdzaks.mvvmkotlina.data.MuseumDataSource
-import com.dzakdzaks.mvvmkotlina.data.MuseumRepository
+import com.dzakdzaks.mvvmkotlina.data.PublicRepository
+import com.dzakdzaks.mvvmkotlina.data.offline.OfflineRepository
+import com.dzakdzaks.mvvmkotlina.data.online.OnlineRepository
 
 /**
  * ==================================//==================================
@@ -14,7 +15,7 @@ import com.dzakdzaks.mvvmkotlina.data.MuseumRepository
  */
 
 object Injection {
-    fun providerMuseumRepo(): MuseumDataSource {
-        return MuseumRepository()
+    fun providerMuseumRepo(): PublicRepository {
+        return PublicRepository(OfflineRepository(), OnlineRepository())
     }
 }
