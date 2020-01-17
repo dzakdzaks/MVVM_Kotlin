@@ -1,12 +1,12 @@
-package com.dzakdzaks.mvvmkotlina.data
+package com.dzakdzaks.mvvmkotlina.service
 
 import com.dzakdzaks.mvvmkotlina.BuildConfig
+import com.dzakdzaks.mvvmkotlina.data.MuseumResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Field
 import retrofit2.http.GET
 
 /**
@@ -33,7 +33,8 @@ object RetrofitApiClient {
             .addInterceptor(interceptor())
 
         val retrofit: Retrofit = builder.client(httpClient.build()).build()
-        servicesApiInterface = retrofit.create(ServicesApiInterface::class.java)
+        servicesApiInterface = retrofit.create(
+            ServicesApiInterface::class.java)
 
         return servicesApiInterface as ServicesApiInterface
     }

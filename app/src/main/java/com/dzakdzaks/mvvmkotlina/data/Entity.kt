@@ -1,7 +1,5 @@
 package com.dzakdzaks.mvvmkotlina.data
 
-import com.dzakdzaks.mvvmkotlina.model.Museum
-
 /**
  * ==================================//==================================
  * ==================================//==================================

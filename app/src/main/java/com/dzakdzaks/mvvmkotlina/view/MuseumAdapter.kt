@@ -1,20 +1,16 @@
 package com.dzakdzaks.mvvmkotlina.view
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dzakdzaks.mvvmkotlina.model.Museum
+import com.dzakdzaks.mvvmkotlina.data.Museum
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.widget.ImageView
-import com.bumptech.glide.Priority
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.dzakdzaks.mvvmkotlina.R
 
 

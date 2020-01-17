@@ -2,7 +2,7 @@ package com.dzakdzaks.mvvmkotlina.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dzakdzaks.mvvmkotlina.model.MuseumDataSource
+import com.dzakdzaks.mvvmkotlina.data.MuseumDataSource
 
 
 /**

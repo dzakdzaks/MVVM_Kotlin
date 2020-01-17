@@ -1,9 +1,8 @@
-package com.dzakdzaks.mvvmkotlina.model
+package com.dzakdzaks.mvvmkotlina.data
 
 import android.util.Log
-import com.dzakdzaks.mvvmkotlina.data.MuseumResponse
-import com.dzakdzaks.mvvmkotlina.data.OperationCallback
-import com.dzakdzaks.mvvmkotlina.data.RetrofitApiClient
+import com.dzakdzaks.mvvmkotlina.callback.OperationCallback
+import com.dzakdzaks.mvvmkotlina.service.RetrofitApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

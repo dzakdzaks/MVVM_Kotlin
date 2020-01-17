@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dzakdzaks.mvvmkotlina.R
 import com.dzakdzaks.mvvmkotlina.di.Injection
-import com.dzakdzaks.mvvmkotlina.model.Museum
+import com.dzakdzaks.mvvmkotlina.data.Museum
 import com.dzakdzaks.mvvmkotlina.viewmodel.MuseumViewModel
 import com.dzakdzaks.mvvmkotlina.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*

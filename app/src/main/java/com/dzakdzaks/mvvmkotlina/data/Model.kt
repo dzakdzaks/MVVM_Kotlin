@@ -1,19 +1,15 @@
-package com.dzakdzaks.mvvmkotlina.model
+package com.dzakdzaks.mvvmkotlina.data
 
-import com.dzakdzaks.mvvmkotlina.data.OperationCallback
-import javax.security.auth.callback.Callback
+import java.io.Serializable
 
 /**
  * ==================================//==================================
  * ==================================//==================================
- * Created by Dzakdzaks on Thursday, 16 January 2020 at 15:27.
+ * Created by Dzakdzaks on Thursday, 16 January 2020 at 15:26.
  * Project Name => MVVM Kotlina
  * Package Name => com.dzakdzaks.mvvmkotlina.model
  * ==================================//==================================
  * ==================================//==================================
  */
 
-interface MuseumDataSource {
-    fun retrieveMuseums(callback: OperationCallback)
-    fun cancel()
-}
+data class Museum(val id: Int?, val name: String?, val photo: String?): Serializable

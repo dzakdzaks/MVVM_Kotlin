@@ -1,8 +1,7 @@
 package com.dzakdzaks.mvvmkotlina.di
 
-import com.dzakdzaks.mvvmkotlina.data.MuseumResponse
-import com.dzakdzaks.mvvmkotlina.model.MuseumDataSource
-import com.dzakdzaks.mvvmkotlina.model.MuseumRepository
+import com.dzakdzaks.mvvmkotlina.data.MuseumDataSource
+import com.dzakdzaks.mvvmkotlina.data.MuseumRepository
 
 /**
  * ==================================//==================================

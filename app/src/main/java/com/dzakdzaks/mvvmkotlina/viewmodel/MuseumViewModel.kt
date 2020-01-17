@@ -3,9 +3,9 @@ package com.dzakdzaks.mvvmkotlina.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dzakdzaks.mvvmkotlina.data.OperationCallback
-import com.dzakdzaks.mvvmkotlina.model.Museum
-import com.dzakdzaks.mvvmkotlina.model.MuseumDataSource
+import com.dzakdzaks.mvvmkotlina.callback.OperationCallback
+import com.dzakdzaks.mvvmkotlina.data.Museum
+import com.dzakdzaks.mvvmkotlina.data.MuseumDataSource
 
 /**
  * ==================================//==================================
@@ -42,7 +42,7 @@ class MuseumViewModel(private val repository: MuseumDataSource): ViewModel() {
 
     fun loadMuseum() {
         _isViewLoading.postValue(true)
-        repository.retrieveMuseums(object : OperationCallback{
+        repository.retrieveMuseums(object : OperationCallback {
             override fun onSuccess(obj: Any?) {
                 _isViewLoading.postValue(false)
                 if (obj != null && obj is List<*>) {
