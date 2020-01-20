@@ -25,9 +25,9 @@ class MuseumViewModel(private val repository: PublicRepository) : ViewModel() {
         var repo: PublicRepository? = null
     }
 
-    fun loadMuseums(): LiveData<List<MuseumEntity>> {
-        return repository.retrieveMuseums()
-    }
+//    fun loadMuseums(): LiveData<List<MuseumEntity>> {
+//        return repository.retrieveMuseums()
+//    }
 
 //    private val _museums = MutableLiveData<List<Museum>>().apply { value = emptyList() }
 //    val museums: LiveData<List<Museum>> = _museums

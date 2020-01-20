@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        adapter = MuseumAdapter(viewModel.loadMuseums().value ?: emptyList())
+        adapter = MuseumAdapter(MuseumViewModel.repo?.retrieveMuseums()?.value ?: emptyList())
 
 //        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewModel() {
         viewModel = ViewModelProviders.of(this, ViewModelFactory(Injection.providerMuseumRepo()))
             .get(MuseumViewModel::class.java)
-        viewModel.loadMuseums().observe(this, renderMuseums)
+        MuseumViewModel.repo?.retrieveMuseums()?.observe(this, renderMuseums)
 
         MuseumViewModel.repo?.isLoading()?.observe(this, isViewLoadingObserver)
         MuseumViewModel.repo?.onErrorMessage()?.observe(this, onMessageErrorObserver)
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadMuseums()
+        MuseumViewModel.repo?.retrieveMuseums()
     }
 
 }
