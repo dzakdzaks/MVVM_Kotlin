@@ -17,13 +17,17 @@ import com.dzakdzaks.mvvmkotlina.model.MuseumEntity
 
 class MuseumViewModel(private val repository: PublicRepository) : ViewModel() {
 
-    init {
-        repo = repository
-    }
+//    init {
+//        repo = repository
+//    }
+//
+//    companion object {
+//        var repo: PublicRepository? = null
+//    }
 
-    companion object {
-        var repo: PublicRepository? = null
-    }
+        fun repo(): PublicRepository {
+            return repository
+        }
 
 //    fun loadMuseums(): LiveData<List<MuseumEntity>> {
 //        return repository.retrieveMuseums()
